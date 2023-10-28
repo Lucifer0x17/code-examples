@@ -29,7 +29,7 @@ async function main() {
     );
 
     const forceUpdateGlobalExitRoot = true; // fast bridge
-    const pingValue = "GM! Hyderabad.";
+    const pingValue = 103109033072121100101114097098097100046;
     const tx = await nftBridgeContract.bridgePingMessage(
         networkIDzkEVM, // Send to the zkEVM
         forceUpdateGlobalExitRoot,
