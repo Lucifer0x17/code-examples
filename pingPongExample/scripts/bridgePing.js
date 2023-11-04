@@ -6,6 +6,7 @@ const { ethers } = require('hardhat');
 
 // const networkIDMainnet = 0;
 const networkIDzkEVM = 1;
+const SECRET_PHASE = "LODGE"
 
 const pathPingPongOutput = path.join(__dirname, '../deployment/pingPong_output.json');
 const pingSenderContractAddress = require(pathPingPongOutput).pingSenderContract;
@@ -13,6 +14,7 @@ const pingSenderContractAddress = require(pathPingPongOutput).pingSenderContract
 async function main() {
     // Load deployer
     let deployer;
+    console.log(SECRET_PHASE)
     if (process.env.PVTKEY) {
         deployer = new ethers.Wallet(process.env.PVTKEY, ethers.provider);
         console.log('Using pvtKey deployer with address: ', deployer.address);
@@ -29,6 +31,7 @@ async function main() {
     );
 
     const forceUpdateGlobalExitRoot = true; // fast bridge
+
     const pingValue = 8765717773;
     const tx = await nftBridgeContract.bridgePingMessage(
         networkIDzkEVM, // Send to the zkEVM
